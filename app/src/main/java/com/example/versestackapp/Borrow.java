@@ -16,7 +16,7 @@ public class Borrow {
     private int borrowId;
 
     private int userId;
-    private int bookId; // Foreign Key for Book.bookId
+    private int bookId; // Foreign Key for Book bookId
     private int isbn;   // book ISBN
 
     // Constructor
