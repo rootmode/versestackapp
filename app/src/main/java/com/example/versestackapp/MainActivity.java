@@ -51,14 +51,9 @@ public class MainActivity extends AppCompatActivity {
             int userIdInput = Integer.parseInt(userIdStr);
             int isbnInput = Integer.parseInt(isbnEditText.getText().toString());
 
-            // create borrow with input fields data
-            Borrow newBorrow = new Borrow(userIdInput, isbnInput);
-
-            // send borrow to database
-            repository.insertBorrow(newBorrow);
-
-            // display message to a user
-            Toast.makeText(this, "You have borrowed a book", Toast.LENGTH_LONG).show();
+            Borrow newBorrow = new Borrow(userIdInput, isbnInput); // create borrow with input fields data
+            repository.insertBorrow(newBorrow); // send borrow to database
+            Toast.makeText(this, "You have borrowed a book", Toast.LENGTH_LONG).show(); // display message to user
 
             // clearing input fields
             libraryCardIdEditText.setText("");
