@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import com.example.versestackapp.database.LibraryRepository;
 import com.example.versestackapp.databinding.ActivityMainBinding;
@@ -14,6 +15,7 @@ public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
     private LibraryRepository repository;
+    private LibraryViewModel viewModel;
     private int loggedInUserId;
     private User currentUser;
 
@@ -23,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         repository = new LibraryRepository(getApplication());
-
+        viewModel = new ViewModelProvider(this).get(LibraryViewModel.class);
         loggedInUserId = getIntent().getIntExtra("USER_ID", -1);
         binding.logoutButton.setOnClickListener(v -> {
             Intent intent = LoginActivity.loginIntentFactory(MainActivity.this);
