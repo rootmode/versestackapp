@@ -9,19 +9,17 @@ import androidx.room.RoomDatabase;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
 import com.example.versestackapp.Book;
-import com.example.versestackapp.BookGenre;
 import com.example.versestackapp.Borrow;
 import com.example.versestackapp.User;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-@Database(entities = {User.class, Book.class, Borrow.class, BookGenre.class}, version = 1, exportSchema = false)
+@Database(entities = {User.class, Book.class, Borrow.class}, version = 1, exportSchema = false)
 public abstract class LibraryDatabase extends RoomDatabase {
     public abstract UserDAO userDAO();
     public abstract BookDAO BookDAO();
     public abstract BorrowDAO borrowDAO();
-    public abstract BookGenreDAO bookGenreDAO();
 
     private static final String DATABASE_NAME = "LibraryDatabase";
     private static volatile LibraryDatabase INSTANCE;
