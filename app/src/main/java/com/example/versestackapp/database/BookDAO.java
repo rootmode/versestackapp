@@ -1,6 +1,8 @@
 package com.example.versestackapp.database;
 
+import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
+import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
 
@@ -11,6 +13,12 @@ public interface BookDAO {
     @Insert
     void insert(Book book);
 
-    @Query("SELECT bookId FROM books WHERE isbn = :isbn")
-    Integer getBookIdByIsbn(int isbn);
+    @Delete
+    void delete(Book book);
+
+    @Query("SELECT * FROM books WHERE isbn = :isbn LIMIT 1")
+    LiveData<Book> getBookByIsbn(int isbn);
+
+    @Query("DELETE FROM books WHERE isbn = :isbn")
+    void deleteByIsbn(int isbn);
 }
