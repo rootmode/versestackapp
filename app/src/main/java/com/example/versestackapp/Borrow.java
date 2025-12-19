@@ -16,17 +16,15 @@ public class Borrow {
     private int borrowId;
 
     private int userId;
-    private int bookId; // Foreign Key for Book bookId
-    private int isbn;   // book ISBN
+    private int bookId;
+    private int isbn;
 
-    // Constructor
-    public Borrow(int userId, int isbn) {
+    public Borrow(int userId, int bookId, int isbn) {
         this.userId = userId;
+        this.bookId = bookId;
         this.isbn = isbn;
-        this.bookId = 0;
     }
 
-    // Getters and Setters
     public int getBorrowId() { return borrowId; }
     public void setBorrowId(int borrowId) { this.borrowId = borrowId; }
     public int getUserId() { return userId; }
